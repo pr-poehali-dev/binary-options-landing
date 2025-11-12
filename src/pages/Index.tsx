@@ -118,11 +118,16 @@ export default function Index() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Icon name="TrendingUp" className="h-5 w-5 text-primary" />
+                      <Icon
+                        name="TrendingUp"
+                        className="h-5 w-5 text-primary"
+                      />
                     </div>
                     <div>
                       <CardTitle className="text-2xl">EUR/USD</CardTitle>
-                      <p className="text-sm text-muted-foreground">Euro / US Dollar</p>
+                      <p className="text-sm text-muted-foreground">
+                        Euro / US Dollar
+                      </p>
                     </div>
                   </div>
                   <div className="text-right">
@@ -136,44 +141,76 @@ export default function Index() {
               </CardHeader>
               <CardContent className="pt-6">
                 <div className="relative h-72 mb-6">
-                  <svg className="w-full h-full" viewBox="0 0 800 300" preserveAspectRatio="none">
+                  <svg
+                    className="w-full h-full"
+                    viewBox="0 0 800 300"
+                    preserveAspectRatio="none"
+                  >
                     <defs>
-                      <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.3"/>
-                        <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.05"/>
+                      <linearGradient
+                        id="chartGradient"
+                        x1="0%"
+                        y1="0%"
+                        x2="0%"
+                        y2="100%"
+                      >
+                        <stop
+                          offset="0%"
+                          stopColor="hsl(var(--primary))"
+                          stopOpacity="0.3"
+                        />
+                        <stop
+                          offset="100%"
+                          stopColor="hsl(var(--primary))"
+                          stopOpacity="0.05"
+                        />
                       </linearGradient>
                     </defs>
-                    
-                    <path 
-                      d="M 0 200 L 30 195 L 60 190 L 90 185 L 120 188 L 150 175 L 180 170 L 210 165 L 240 160 L 270 155 L 300 150 L 330 145 L 360 148 L 390 135 L 420 130 L 450 128 L 480 125 L 510 120 L 540 115 L 570 110 L 600 105 L 630 100 L 660 95 L 690 90 L 720 85 L 750 80 L 780 75 L 800 70 L 800 300 L 0 300 Z" 
+
+                    <path
+                      d="M 0 200 L 30 195 L 60 190 L 90 185 L 120 188 L 150 175 L 180 170 L 210 165 L 240 160 L 270 155 L 300 150 L 330 145 L 360 148 L 390 135 L 420 130 L 450 128 L 480 125 L 510 120 L 540 115 L 570 110 L 600 105 L 630 100 L 660 95 L 690 90 L 720 85 L 750 80 L 780 75 L 800 70 L 800 300 L 0 300 Z"
                       fill="url(#chartGradient)"
                     />
-                    
-                    <path 
-                      d="M 0 200 L 30 195 L 60 190 L 90 185 L 120 188 L 150 175 L 180 170 L 210 165 L 240 160 L 270 155 L 300 150 L 330 145 L 360 148 L 390 135 L 420 130 L 450 128 L 480 125 L 510 120 L 540 115 L 570 110 L 600 105 L 630 100 L 660 95 L 690 90 L 720 85 L 750 80 L 780 75 L 800 70" 
-                      fill="none" 
-                      stroke="hsl(var(--primary))" 
+
+                    <path
+                      d="M 0 200 L 30 195 L 60 190 L 90 185 L 120 188 L 150 175 L 180 170 L 210 165 L 240 160 L 270 155 L 300 150 L 330 145 L 360 148 L 390 135 L 420 130 L 450 128 L 480 125 L 510 120 L 540 115 L 570 110 L 600 105 L 630 100 L 660 95 L 690 90 L 720 85 L 750 80 L 780 75 L 800 70"
+                      fill="none"
+                      stroke="hsl(var(--primary))"
                       strokeWidth="3"
                       className="drop-shadow-lg"
                     />
-                    
+
                     {[
-                      {x: 0, y: 200}, {x: 150, y: 175}, {x: 300, y: 150}, 
-                      {x: 450, y: 128}, {x: 600, y: 105}, {x: 750, y: 80}, {x: 800, y: 70}
+                      { x: 0, y: 200 },
+                      { x: 150, y: 175 },
+                      { x: 300, y: 150 },
+                      { x: 450, y: 128 },
+                      { x: 600, y: 105 },
+                      { x: 750, y: 80 },
+                      { x: 800, y: 70 },
                     ].map((point, i) => (
-                      <circle 
+                      <circle
                         key={i}
-                        cx={point.x} 
-                        cy={point.y} 
-                        r="5" 
+                        cx={point.x}
+                        cy={point.y}
+                        r="5"
                         fill="hsl(var(--primary))"
                         className="animate-pulse"
                       />
                     ))}
-                    
-                    <line x1="0" y1="150" x2="800" y2="150" stroke="hsl(var(--muted-foreground))" strokeWidth="1" strokeDasharray="5,5" opacity="0.3"/>
+
+                    <line
+                      x1="0"
+                      y1="150"
+                      x2="800"
+                      y2="150"
+                      stroke="hsl(var(--muted-foreground))"
+                      strokeWidth="1"
+                      strokeDasharray="5,5"
+                      opacity="0.3"
+                    />
                   </svg>
-                  
+
                   <div className="absolute bottom-0 left-0 right-0 flex justify-between text-xs text-muted-foreground px-2">
                     <span>09:00</span>
                     <span>12:00</span>
@@ -185,29 +222,40 @@ export default function Index() {
 
                 <div className="grid grid-cols-4 gap-3 mb-6 text-center">
                   <div className="p-3 rounded-lg bg-muted/50">
-                    <div className="text-xs text-muted-foreground mb-1">Открытие</div>
+                    <div className="text-xs text-muted-foreground mb-1">
+                      Открытие
+                    </div>
                     <div className="font-semibold">1.0797</div>
                   </div>
                   <div className="p-3 rounded-lg bg-muted/50">
-                    <div className="text-xs text-muted-foreground mb-1">Максимум</div>
+                    <div className="text-xs text-muted-foreground mb-1">
+                      Максимум
+                    </div>
                     <div className="font-semibold text-accent">1.0852</div>
                   </div>
                   <div className="p-3 rounded-lg bg-muted/50">
-                    <div className="text-xs text-muted-foreground mb-1">Минимум</div>
+                    <div className="text-xs text-muted-foreground mb-1">
+                      Минимум
+                    </div>
                     <div className="font-semibold text-destructive">1.0785</div>
                   </div>
                   <div className="p-3 rounded-lg bg-muted/50">
-                    <div className="text-xs text-muted-foreground mb-1">Объём</div>
+                    <div className="text-xs text-muted-foreground mb-1">
+                      Объём
+                    </div>
                     <div className="font-semibold">2.4M</div>
                   </div>
                 </div>
-                
+
                 <div className="grid grid-cols-2 gap-4">
                   <Button className="w-full bg-accent hover:bg-accent/90 h-14 text-lg font-semibold">
                     <Icon name="ArrowUp" className="mr-2 h-5 w-5" />
                     ВВЕРХ
                   </Button>
-                  <Button variant="destructive" className="w-full h-14 text-lg font-semibold">
+                  <Button
+                    variant="destructive"
+                    className="w-full h-14 text-lg font-semibold"
+                  >
                     <Icon name="ArrowDown" className="mr-2 h-5 w-5" />
                     ВНИЗ
                   </Button>
