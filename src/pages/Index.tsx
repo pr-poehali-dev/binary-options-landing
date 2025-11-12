@@ -113,38 +113,103 @@ export default function Index() {
           </div>
 
           <div className="relative animate-scale-in">
-            <Card className="border-2 shadow-2xl">
-              <CardHeader>
+            <Card className="border-2 shadow-2xl bg-gradient-to-br from-card to-muted/20">
+              <CardHeader className="border-b">
                 <div className="flex items-center justify-between">
-                  <CardTitle>EUR/USD</CardTitle>
-                  <div className="flex items-center gap-2">
-                    <Icon name="TrendingUp" className="h-5 w-5 text-accent" />
-                    <span className="text-accent font-semibold">+0.42%</span>
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Icon name="TrendingUp" className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-2xl">EUR/USD</CardTitle>
+                      <p className="text-sm text-muted-foreground">Euro / US Dollar</p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-3xl font-bold">1.0842</div>
+                    <div className="flex items-center gap-1 text-accent justify-end">
+                      <Icon name="ArrowUp" className="h-4 w-4" />
+                      <span className="font-semibold">+0.0045 (+0.42%)</span>
+                    </div>
                   </div>
                 </div>
               </CardHeader>
-              <CardContent>
-                <div className="h-64 flex items-end gap-1">
-                  {[
-                    65, 72, 68, 75, 70, 78, 82, 79, 85, 88, 84, 90, 87, 92, 95,
-                    91, 96, 93, 98, 95, 100, 97, 102, 99, 105, 102, 108, 106,
-                    110, 108,
-                  ].map((height, i) => (
-                    <div
-                      key={i}
-                      className="flex-1 bg-primary rounded-t transition-all hover:bg-primary/80"
-                      style={{ height: `${height}%` }}
+              <CardContent className="pt-6">
+                <div className="relative h-72 mb-6">
+                  <svg className="w-full h-full" viewBox="0 0 800 300" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.3"/>
+                        <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.05"/>
+                      </linearGradient>
+                    </defs>
+                    
+                    <path 
+                      d="M 0 200 L 30 195 L 60 190 L 90 185 L 120 188 L 150 175 L 180 170 L 210 165 L 240 160 L 270 155 L 300 150 L 330 145 L 360 148 L 390 135 L 420 130 L 450 128 L 480 125 L 510 120 L 540 115 L 570 110 L 600 105 L 630 100 L 660 95 L 690 90 L 720 85 L 750 80 L 780 75 L 800 70 L 800 300 L 0 300 Z" 
+                      fill="url(#chartGradient)"
                     />
-                  ))}
+                    
+                    <path 
+                      d="M 0 200 L 30 195 L 60 190 L 90 185 L 120 188 L 150 175 L 180 170 L 210 165 L 240 160 L 270 155 L 300 150 L 330 145 L 360 148 L 390 135 L 420 130 L 450 128 L 480 125 L 510 120 L 540 115 L 570 110 L 600 105 L 630 100 L 660 95 L 690 90 L 720 85 L 750 80 L 780 75 L 800 70" 
+                      fill="none" 
+                      stroke="hsl(var(--primary))" 
+                      strokeWidth="3"
+                      className="drop-shadow-lg"
+                    />
+                    
+                    {[
+                      {x: 0, y: 200}, {x: 150, y: 175}, {x: 300, y: 150}, 
+                      {x: 450, y: 128}, {x: 600, y: 105}, {x: 750, y: 80}, {x: 800, y: 70}
+                    ].map((point, i) => (
+                      <circle 
+                        key={i}
+                        cx={point.x} 
+                        cy={point.y} 
+                        r="5" 
+                        fill="hsl(var(--primary))"
+                        className="animate-pulse"
+                      />
+                    ))}
+                    
+                    <line x1="0" y1="150" x2="800" y2="150" stroke="hsl(var(--muted-foreground))" strokeWidth="1" strokeDasharray="5,5" opacity="0.3"/>
+                  </svg>
+                  
+                  <div className="absolute bottom-0 left-0 right-0 flex justify-between text-xs text-muted-foreground px-2">
+                    <span>09:00</span>
+                    <span>12:00</span>
+                    <span>15:00</span>
+                    <span>18:00</span>
+                    <span>21:00</span>
+                  </div>
                 </div>
-                <div className="mt-6 grid grid-cols-2 gap-4">
-                  <Button className="w-full bg-accent hover:bg-accent/90">
-                    <Icon name="ArrowUp" className="mr-2 h-4 w-4" />
-                    Вверх
+
+                <div className="grid grid-cols-4 gap-3 mb-6 text-center">
+                  <div className="p-3 rounded-lg bg-muted/50">
+                    <div className="text-xs text-muted-foreground mb-1">Открытие</div>
+                    <div className="font-semibold">1.0797</div>
+                  </div>
+                  <div className="p-3 rounded-lg bg-muted/50">
+                    <div className="text-xs text-muted-foreground mb-1">Максимум</div>
+                    <div className="font-semibold text-accent">1.0852</div>
+                  </div>
+                  <div className="p-3 rounded-lg bg-muted/50">
+                    <div className="text-xs text-muted-foreground mb-1">Минимум</div>
+                    <div className="font-semibold text-destructive">1.0785</div>
+                  </div>
+                  <div className="p-3 rounded-lg bg-muted/50">
+                    <div className="text-xs text-muted-foreground mb-1">Объём</div>
+                    <div className="font-semibold">2.4M</div>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4">
+                  <Button className="w-full bg-accent hover:bg-accent/90 h-14 text-lg font-semibold">
+                    <Icon name="ArrowUp" className="mr-2 h-5 w-5" />
+                    ВВЕРХ
                   </Button>
-                  <Button variant="destructive" className="w-full">
-                    <Icon name="ArrowDown" className="mr-2 h-4 w-4" />
-                    Вниз
+                  <Button variant="destructive" className="w-full h-14 text-lg font-semibold">
+                    <Icon name="ArrowDown" className="mr-2 h-5 w-5" />
+                    ВНИЗ
                   </Button>
                 </div>
               </CardContent>
