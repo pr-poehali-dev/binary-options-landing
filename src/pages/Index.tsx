@@ -20,9 +20,11 @@ export default function Index() {
       <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2 font-bold text-xl">
-            <div className="h-8 w-8 rounded bg-primary flex items-center justify-center text-primary-foreground">
-              P
-            </div>
+            <svg className="h-10 w-10" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100" height="100" rx="20" fill="hsl(var(--primary))"/>
+              <path d="M30 50 L30 30 L50 30 C60 30 67 37 67 47 C67 57 60 60 50 60 L30 60" stroke="white" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+              <circle cx="70" cy="73" r="7" fill="hsl(var(--accent))"/>
+            </svg>
             Pocket Option
           </div>
           <div className="hidden md:flex items-center gap-6">
